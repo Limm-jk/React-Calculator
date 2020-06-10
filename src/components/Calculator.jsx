@@ -58,8 +58,14 @@ class Calculator extends React.Component {
       "√": () => {},
       // TODO: 사칙연산 구현
       "÷": () => {},
-      "×": () => {},
-      "-": () => {},
+      "×": () => {
+        
+      },
+      "-": () => {
+        if (lastChar !== "" && !operatorKeys.includes(lastChar)) {
+          this.setState({ displayValue: displayValue + "-" });
+        }
+      },
       "+": () => {
         // + 연산 참고하여 연산 구현
         if (lastChar !== "" && !operatorKeys.includes(lastChar)) {
@@ -70,7 +76,8 @@ class Calculator extends React.Component {
         if (lastChar !== "" && operatorKeys.includes(lastChar)) {
           displayValue = displayValue.substr(0, displayValue.length - 1);
         } else if (lastChar !== "") {
-          displayValue = evalFunc(displayValue);
+          let tempValue = displayValue.replace('X','*')
+          displayValue = evalFunc(tempValue);
         }
         this.setState({ displayValue });
       },
