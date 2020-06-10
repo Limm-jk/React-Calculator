@@ -6,6 +6,7 @@ import Display from "./Display";
 import ButtonGroup from "./ButtonGroup";
 import Button from "./Button";
 
+
 const Container = styled.div`
   margin: 30px auto;
   text-align: center;
@@ -55,7 +56,17 @@ class Calculator extends React.Component {
         this.setState({ displayValue });
       },
       // TODO: 제곱근 구현
-      "√": () => {},
+      "√": () => {
+        if (lastChar !== "" && operatorKeys.includes(lastChar)) {
+          displayValue = displayValue.substr(0, displayValue.length - 1);
+        } else if (lastChar !== "") {
+          let tempValue = displayValue.replace('x','*')
+          tempValue = displayValue.replace('÷','/')
+          displayValue = evalFunc(tempValue);
+          displayValue = Math.sqrt(displayValue);
+        }
+        this.setState({ displayValue });
+      },
       // TODO: 사칙연산 구현
       "÷": () => {
         if (lastChar !== "" && !operatorKeys.includes(lastChar)) {
@@ -64,7 +75,7 @@ class Calculator extends React.Component {
       },
       "×": () => {
         if (lastChar !== "" && !operatorKeys.includes(lastChar)) {
-          this.setState({ displayValue: displayValue + "X" });
+          this.setState({ displayValue: displayValue + "x" });
         }
       },
       "-": () => {
@@ -82,7 +93,7 @@ class Calculator extends React.Component {
         if (lastChar !== "" && operatorKeys.includes(lastChar)) {
           displayValue = displayValue.substr(0, displayValue.length - 1);
         } else if (lastChar !== "") {
-          let tempValue = displayValue.replace('X','*')
+          let tempValue = displayValue.replace('x','*')
           tempValue = displayValue.replace('÷','/')
           displayValue = evalFunc(tempValue);
         }
@@ -111,11 +122,14 @@ class Calculator extends React.Component {
         <Panel>
           <Display displayValue={this.state.displayValue} />
           <ButtonGroup onClickButton={this.onClickButton}>
-            <Button size={2} color="gray">
+            <Button size={1} color="gray">
               AC
             </Button>
             <Button size={1} color="gray">
               BS
+            </Button>
+            <Button size={1} color="gray">
+              √
             </Button>
             <Button size={1} color="gray">
               ÷
