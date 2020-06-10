@@ -1,15 +1,15 @@
 {
-  "main.css": "/react-calculator/static/css/main.59c168e1.chunk.css",
-  "main.js": "/react-calculator/static/js/main.46c057e7.chunk.js",
-  "main.js.map": "/react-calculator/static/js/main.46c057e7.chunk.js.map",
-  "static/css/1.ff7c4029.chunk.css": "/react-calculator/static/css/1.ff7c4029.chunk.css",
-  "static/js/1.ceb6ec46.chunk.js": "/react-calculator/static/js/1.ceb6ec46.chunk.js",
-  "static/js/1.ceb6ec46.chunk.js.map": "/react-calculator/static/js/1.ceb6ec46.chunk.js.map",
-  "runtime~main.js": "/react-calculator/static/js/runtime~main.a2ecf2e6.js",
-  "runtime~main.js.map": "/react-calculator/static/js/runtime~main.a2ecf2e6.js.map",
-  "static/css/main.59c168e1.chunk.css.map": "/react-calculator/static/css/main.59c168e1.chunk.css.map",
-  "static/css/1.ff7c4029.chunk.css.map": "/react-calculator/static/css/1.ff7c4029.chunk.css.map",
-  "index.html": "/react-calculator/index.html",
-  "precache-manifest.72f01110fbb96038031279d4d11eea00.js": "/react-calculator/precache-manifest.72f01110fbb96038031279d4d11eea00.js",
-  "service-worker.js": "/react-calculator/service-worker.js"
+  "main.css": "/React-Calculator/static/css/main.ba506796.chunk.css",
+  "main.js": "/React-Calculator/static/js/main.a0fda9a9.chunk.js",
+  "main.js.map": "/React-Calculator/static/js/main.a0fda9a9.chunk.js.map",
+  "static/css/1.7884e8af.chunk.css": "/React-Calculator/static/css/1.7884e8af.chunk.css",
+  "static/js/1.f8c0c9ad.chunk.js": "/React-Calculator/static/js/1.f8c0c9ad.chunk.js",
+  "static/js/1.f8c0c9ad.chunk.js.map": "/React-Calculator/static/js/1.f8c0c9ad.chunk.js.map",
+  "runtime~main.js": "/React-Calculator/static/js/runtime~main.4a9b6dfe.js",
+  "runtime~main.js.map": "/React-Calculator/static/js/runtime~main.4a9b6dfe.js.map",
+  "static/css/main.ba506796.chunk.css.map": "/React-Calculator/static/css/main.ba506796.chunk.css.map",
+  "static/css/1.7884e8af.chunk.css.map": "/React-Calculator/static/css/1.7884e8af.chunk.css.map",
+  "index.html": "/React-Calculator/index.html",
+  "precache-manifest.1670927391a007c4e5fbc3f66e05c375.js": "/React-Calculator/precache-manifest.1670927391a007c4e5fbc3f66e05c375.js",
+  "service-worker.js": "/React-Calculator/service-worker.js"
 }
