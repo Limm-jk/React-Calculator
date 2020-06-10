@@ -60,7 +60,7 @@ class Calculator extends React.Component {
         if (lastChar !== "" && operatorKeys.includes(lastChar)) {
           displayValue = displayValue.substr(0, displayValue.length - 1);
         } else if (lastChar !== "") {
-          let tempValue = displayValue.replace(/x/g,'*')
+          let tempValue = displayValue.replace(/×/g,'*')
           tempValue = tempValue.replace(/÷/g,'/')
           displayValue = evalFunc(tempValue);
           displayValue = Math.sqrt(displayValue);
@@ -75,7 +75,7 @@ class Calculator extends React.Component {
       },
       "×": () => {
         if (lastChar !== "" && !operatorKeys.includes(lastChar)) {
-          this.setState({ displayValue: displayValue + "x" });
+          this.setState({ displayValue: displayValue + "×" });
         }
       },
       "-": () => {
@@ -93,7 +93,7 @@ class Calculator extends React.Component {
         if (lastChar !== "" && operatorKeys.includes(lastChar)) {
           displayValue = displayValue.substr(0, displayValue.length - 1);
         } else if (lastChar !== "") {
-          let tempValue = displayValue.replace(/x/g,'*')
+          let tempValue = displayValue.replace(/×/g,'*')
           tempValue = tempValue.replace(/÷/g,'/')
           displayValue = evalFunc(tempValue);
         }
