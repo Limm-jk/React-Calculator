@@ -94,7 +94,7 @@ class Calculator extends React.Component {
           displayValue = displayValue.substr(0, displayValue.length - 1);
         } else if (lastChar !== "") {
           let tempValue = displayValue.replace('x','*')
-          tempValue = displayValue.replace('÷','/')
+          tempValue = tempValue.replace('÷','/')
           displayValue = evalFunc(tempValue);
         }
         this.setState({ displayValue });
