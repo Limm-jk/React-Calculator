@@ -40,11 +40,13 @@ class Calculator extends React.Component {
   state = {
     displayValue: "",
     expression: [],
-    result: []
+    result: [],
+    temp_result: ""
   };
 
   onClickButton = key => {
     let { displayValue = "" } = this.state;
+    let { temp_result = "" } = this.state;
     let { expression = [] } = this.state;
     let { result = [] } = this.state;
     displayValue = "" + displayValue;
@@ -70,7 +72,10 @@ class Calculator extends React.Component {
 
           let tempValue = displayValue.replace(/×/g,'*')
           tempValue = tempValue.replace(/÷/g,'/')
-          displayValue = evalFunc(tempValue);
+
+          if(displayValue.charAt(0)=="√") displayValue = temp_result;
+          else displayValue = evalFunc(tempValue);
+
           displayValue = Math.sqrt(displayValue);
 
           result.unshift("" + displayValue);
@@ -105,12 +110,12 @@ class Calculator extends React.Component {
         if (lastChar !== "" && operatorKeys.includes(lastChar)) {
           displayValue = displayValue.substr(0, displayValue.length - 1);
         } else if (lastChar !== "") {
-
           expression.unshift(displayValue);
 
           let tempValue = displayValue.replace(/×/g,'*');
           tempValue = tempValue.replace(/÷/g,'/');
-          displayValue = evalFunc(tempValue);
+          if(displayValue.charAt(0)=="√") displayValue = temp_result;
+          else displayValue = evalFunc(tempValue);
 
           result.unshift(displayValue);
         }
@@ -194,6 +199,7 @@ class Calculator extends React.Component {
             return(
               <Box onClick={() => {
                   this.setState({ displayValue : this.state.expression[index]});
+                  this.setState({ temp_result : element });
                 }
               }>
                 <div>{this.state.expression[index]}</div>
