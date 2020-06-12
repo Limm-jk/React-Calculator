@@ -108,8 +108,8 @@ class Calculator extends React.Component {
 
           expression.unshift(displayValue);
 
-          let tempValue = displayValue.replace(/×/g,'*')
-          tempValue = tempValue.replace(/÷/g,'/')
+          let tempValue = displayValue.replace(/×/g,'*');
+          tempValue = tempValue.replace(/÷/g,'/');
           displayValue = evalFunc(tempValue);
 
           result.unshift(displayValue);
@@ -193,9 +193,7 @@ class Calculator extends React.Component {
           this.state.result.map((element,index) => {
             return(
               <Box onClick={() => {
-                  // displayValue = this.state.expression[index];
-                  // this.setState({ displayValue });
-                  // displayValue={this.state.expression[index]};
+                  this.setState({ displayValue : this.state.expression[index]});
                 }
               }>
                 <div>{this.state.expression[index]}</div>
