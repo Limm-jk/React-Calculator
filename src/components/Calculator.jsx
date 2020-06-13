@@ -124,11 +124,24 @@ class Calculator extends React.Component {
         this.setState({ result });
       },
       ".": () => {
-        if (Number(displayValue) == 0) displayValue += "0.";  
-        //else if ()
-        else displayValue += ".";
+        // if (Number(displayValue) == 0) displayValue += "0.";  
+        // //else if ()
+        // else displayValue += ".";
+        let last_op_arr = []
+        last_op_arr.push(displayValue.lastIndexOf("+"));
+        last_op_arr.push(displayValue.lastIndexOf("-"));
+        last_op_arr.push(displayValue.lastIndexOf("×"));
+        last_op_arr.push(displayValue.lastIndexOf("÷"));
 
-        this.setState({ displayValue });
+        let a = Math.max.apply(null, last_op_arr);
+        if (a == -1) a = 0;
+        if (!(displayValue.substring(a, displayValue.length)).includes(".")) {
+          if(operatorKeys.includes(displayValue.substr(displayValue.length - 1))) 
+            this.setState({ displayValue: displayValue + "0." });
+          else this.setState({ displayValue: displayValue + "." });
+        }
+
+        // this.setState({ displayValue });
       },
       "0": () => {
         if (Number(displayValue) !== 0) {
