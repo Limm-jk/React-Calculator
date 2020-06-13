@@ -67,7 +67,7 @@ class Calculator extends React.Component {
         if (lastChar !== "" && operatorKeys.includes(lastChar)) {
           displayValue = displayValue.substr(0, displayValue.length - 1);
         } else if (lastChar !== "") {
-
+          //히스토리
           expression.unshift("√(" + displayValue + ")");
 
           let tempValue = displayValue.replace(/×/g,'*')
@@ -77,7 +77,7 @@ class Calculator extends React.Component {
           else displayValue = evalFunc(tempValue);
 
           displayValue = Math.sqrt(displayValue);
-
+          //히스토리
           result.unshift("" + displayValue);
         }
         this.setState({ displayValue });
@@ -110,13 +110,14 @@ class Calculator extends React.Component {
         if (lastChar !== "" && operatorKeys.includes(lastChar)) {
           displayValue = displayValue.substr(0, displayValue.length - 1);
         } else if (lastChar !== "") {
+          //히스토리
           expression.unshift(displayValue);
 
           let tempValue = displayValue.replace(/×/g,'*');
           tempValue = tempValue.replace(/÷/g,'/');
           if(displayValue.charAt(0)=="√") displayValue = temp_result;
           else displayValue = evalFunc(tempValue);
-
+          //히스토리
           result.unshift(displayValue);
         }
         this.setState({ displayValue });
@@ -127,16 +128,17 @@ class Calculator extends React.Component {
         // if (Number(displayValue) == 0) displayValue += "0.";  
         // //else if ()
         // else displayValue += ".";
+        // 가장 근처에 있는 연산자 탐색
         let last_op_arr = []
         last_op_arr.push(displayValue.lastIndexOf("+"));
         last_op_arr.push(displayValue.lastIndexOf("-"));
         last_op_arr.push(displayValue.lastIndexOf("×"));
         last_op_arr.push(displayValue.lastIndexOf("÷"));
-
         let a = Math.max.apply(null, last_op_arr);
+
         if (a == -1) a = 0;
         if (!(displayValue.substring(a, displayValue.length)).includes(".")) {
-          if(operatorKeys.includes(displayValue.substr(displayValue.length - 1))) 
+          if(operatorKeys.includes(displayValue.substr(displayValue.length - 1)) || Number(displayValue) == 0) 
             this.setState({ displayValue: displayValue + "0." });
           else this.setState({ displayValue: displayValue + "." });
         }
